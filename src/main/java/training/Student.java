@@ -2,6 +2,7 @@ package training;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import trainers.Trainer;
@@ -58,6 +59,7 @@ public class Student
 
    public void participate( final Training training )
    {
+      Objects.requireNonNull(training);
       this.trainings.add( training );
    }
 

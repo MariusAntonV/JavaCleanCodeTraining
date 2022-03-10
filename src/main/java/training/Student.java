@@ -21,9 +21,9 @@ public class Student
 
    private final String phoneNo;
 
-   private int avCrds;
+   private int credits;
 
-   private final List<TrainPeople> trainings = new ArrayList<>();
+   private final List<Training> trainings = new ArrayList<>();
 
    public Student( final String name, final String country, final String city, final String street,
          final String phoneNo )
@@ -53,12 +53,12 @@ public class Student
    }
 
 
-   public Integer participate( final TrainPeople training )
+   public Integer participate( final Training training )
    {
       this.trainings.add( training );
 
       final int cst = 0;
-      for ( final TrainPeople t : this.trainings )
+      for ( final Training t : this.trainings )
       {
          t.cost( cst );
       }
@@ -67,63 +67,63 @@ public class Student
    }
 
 
-   public List<TrainPeople> getTrainings()
+   public List<Training> getTrainings()
    {
       return this.trainings;
    }
 
 
-   public void crds( final int c )
+   public void addCredits( final int credits )
    {
-      this.avCrds += c;
+      this.credits += credits;
    }
 
-   public int creds(){
-      return this.avCrds;
+   public int getCredits(){
+      return this.credits;
    }
 
 
-   public int exp()
+   public int calculateExperience()
    {
-      int e = 0;
-      for ( final TrainPeople tr : this.trainings )
+      int experience = 0;
+      for ( final Training training : this.trainings )
       {
-         final int d = tr.getTopic().getDifficulty();
-         final Trainer t = tr.getTutor();
+         final int difficulty = training.getTopic().getDifficulty();
+         final Trainer trainer = training.getTrainer();
 
-         switch ( t.getType() )
+         switch ( trainer.getType() )
          {
             case Trainer.J:
-               if ( d < 30 )
+               if ( difficulty < 30 )
                {
-                  e += d;
+                  experience += difficulty;
                }
-               else if ( d < 60 )
+               else if ( difficulty < 60 )
                {
-                  e += d / 2;
+                  experience += difficulty / 2;
                }
                else
                {
-                  e += 0;//too difficult
+                  experience += 0;//too difficult
                }
                break;
             case Trainer.M:
-               if ( d < 50 )
+               if ( difficulty < 50 )
                {
-                  e += d;
+                  experience += difficulty;
                }
                else
                {
-                  e += d * 0.6;
+                  experience += difficulty * 0.6;
                }
                break;
             case Trainer.S:
-               e += d;//efficiency is 100%
+               experience += difficulty;//efficiency is 100%
                break;
          }
 
       }
 
-      return e;
+      return experience;
    }
 }

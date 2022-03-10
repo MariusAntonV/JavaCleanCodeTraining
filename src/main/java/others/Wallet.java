@@ -16,23 +16,26 @@ public class Wallet
    private int bonusCredits = 0;
 
 
-   public void addCredits( final int credits, final boolean isBonus )
+   public void addCredits( final int credits )
+   {
+      this.credits = addCredit( credits, this.credits );
+   }
+
+
+   public void addBonusCredits( final int credits )
+   {
+      this.bonusCredits = addCredit( credits, this.bonusCredits );
+   }
+
+   private int addCredit( int credits, int target )
    {
       if ( credits <= 0 )
       {
          //log
-         return;
+         return 0;
       }
 
-      if ( isBonus )
-      {
-         this.bonusCredits += credits;
-      }
-      else
-      {
-         this.credits += credits;
-      }
-
+      return target + credits;
    }
 
 

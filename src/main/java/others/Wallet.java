@@ -52,9 +52,7 @@ public class Wallet
 
    public boolean hasBonusCredits()
    {
-      final boolean hasBonusCredits = this.bonusCredits > 0;
-      this.bonusCredits--;
-      return hasBonusCredits;
+      return this.bonusCredits > 0;
    }
 
 }

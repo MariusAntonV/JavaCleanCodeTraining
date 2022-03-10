@@ -2,6 +2,7 @@ package training;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import trainers.Trainer;
 
@@ -60,14 +61,19 @@ public class Student
       this.trainings.add( training );
    }
 
-   public Integer getCost(){
+   public Optional<Integer> getCost(){
+
+      if(this.trainings.size() == 0){
+         return Optional.empty();
+      }
+
       final int cost = 0;
       for ( final Training aTraining : this.trainings )
       {
          aTraining.cost( cost );
       }
 
-      return cost;
+      return Optional.of( cost );
    }
 
 

@@ -11,11 +11,9 @@ package training;
  */
 public interface Trainer
 {
-   String JUNIOR = "junior";
-   String MIDDLE = "middle";
-   String SENIOR = "senior";
-
    String getName();
 
    String getType();
+
+   double deliverExperience(int difficulty);
 }

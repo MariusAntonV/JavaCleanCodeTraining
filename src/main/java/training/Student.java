@@ -6,6 +6,7 @@ import java.util.List;
 import trainers.Trainer;
 
 /**
+ * Represents a student .....
  *
  * @author MAnton
  */
@@ -36,6 +37,7 @@ public class Student
    }
 
 
+
    public String printAddress()
    {
       final StringBuilder sb = new StringBuilder( "" );
@@ -53,10 +55,12 @@ public class Student
    }
 
 
-   public Integer participate( final Training training )
+   public void participate( final Training training )
    {
       this.trainings.add( training );
+   }
 
+   public Integer getCost(){
       final int cost = 0;
       for ( final Training aTraining : this.trainings )
       {
@@ -83,6 +87,10 @@ public class Student
    }
 
 
+   /**
+    *
+    * @return experience based on previous participations to trainings
+    */
    public int calculateExperience()
    {
       int experience = 0;
@@ -104,7 +112,7 @@ public class Student
                }
                else
                {
-                  experience += 0;//too difficult
+                  experience += 0;
                }
                break;
             case Trainer.MIDDLE:
@@ -118,7 +126,7 @@ public class Student
                }
                break;
             case Trainer.SENIOR:
-               experience += difficulty;//efficiency is 100%
+               experience += difficulty;
                break;
          }
 

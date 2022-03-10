@@ -57,13 +57,13 @@ public class Student
    {
       this.trainings.add( training );
 
-      final int cst = 0;
-      for ( final Training t : this.trainings )
+      final int cost = 0;
+      for ( final Training aTraining : this.trainings )
       {
-         t.cost( cst );
+         aTraining.cost( cost );
       }
 
-      return cst;
+      return cost;
    }
 
 
@@ -93,7 +93,7 @@ public class Student
 
          switch ( trainer.getType() )
          {
-            case Trainer.J:
+            case Trainer.JUNIOR:
                if ( difficulty < 30 )
                {
                   experience += difficulty;
@@ -107,7 +107,7 @@ public class Student
                   experience += 0;//too difficult
                }
                break;
-            case Trainer.M:
+            case Trainer.MIDDLE:
                if ( difficulty < 50 )
                {
                   experience += difficulty;
@@ -117,7 +117,7 @@ public class Student
                   experience += difficulty * 0.6;
                }
                break;
-            case Trainer.S:
+            case Trainer.SENIOR:
                experience += difficulty;//efficiency is 100%
                break;
          }

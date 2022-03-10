@@ -18,9 +18,9 @@ public class StudentTest
       final Student student = new Student( "Marius", "Romania", "Cluj-Napoca", "Taietura", "1234567" );
       student.addCredits( 30 );
 
-      final Trainer trainer1 = new Trainer( "Mihai", Trainer.J );
-      final Trainer trainer2 = new Trainer( "Ionut", Trainer.M );
-      final Trainer trainer3 = new Trainer( "Andreea", Trainer.S );
+      final Trainer trainer1 = new Trainer( "Mihai", Trainer.JUNIOR );
+      final Trainer trainer2 = new Trainer( "Ionut", Trainer.MIDDLE );
+      final Trainer trainer3 = new Trainer( "Andreea", Trainer.SENIOR );
 
       final Topic html = new Topic( "HTML for beginners", 20 );
       final Topic java = new Topic( "Java in action", 50 );

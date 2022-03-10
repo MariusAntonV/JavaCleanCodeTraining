@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import trainers.Trainer;
-
 /**
  * Represents a student .....
  *

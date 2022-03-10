@@ -15,22 +15,22 @@ public class Wallet
 
    private int bonusCredits = 0;
 
+
    public void addCredits( final int credits, final boolean isBonus )
    {
-      if ( credits > 0 )
+      if ( credits <= 0 )
       {
-         if ( isBonus )
-         {
-            this.bonusCredits += credits;
-         }
-         else
-         {
-            this.credits += credits;
-         }
+         //log
+         return;
+      }
+
+      if ( isBonus )
+      {
+         this.bonusCredits += credits;
       }
       else
       {
-         return;
+         this.credits += credits;
       }
 
    }

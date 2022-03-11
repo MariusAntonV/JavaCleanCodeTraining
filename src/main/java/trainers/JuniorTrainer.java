@@ -29,7 +29,7 @@ public class JuniorTrainer implements Trainer
    }
 
    @Override
-   public double deliverExperience( int difficulty )
+   public int deliverExperience( int difficulty )
    {
       int experience = 0;
       if ( difficulty < 30 )

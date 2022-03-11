@@ -38,7 +38,7 @@ public class Training
    }
 
 
-   public double getExperience(){
+   public int getExperience(){
       return this.trainer.deliverExperience( this.topic.getDifficulty());
    }
 }

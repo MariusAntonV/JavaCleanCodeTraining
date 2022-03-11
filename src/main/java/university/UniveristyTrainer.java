@@ -21,7 +21,7 @@ public class UniveristyTrainer implements Trainer
 
 
    @Override
-   public double deliverExperience( int difficulty )
+   public int deliverExperience( int difficulty )
    {
       return 200;
    }

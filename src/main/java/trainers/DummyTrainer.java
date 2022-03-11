@@ -21,7 +21,7 @@ public class DummyTrainer implements Trainer
 
 
    @Override
-   public double deliverExperience( int difficulty )
+   public int deliverExperience( int difficulty )
    {
       throw new RuntimeException("I can't teach this!!!!!");
    }

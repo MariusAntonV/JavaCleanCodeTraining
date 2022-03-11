@@ -29,7 +29,7 @@ public class MediumTrainer implements Trainer
    }
 
    @Override
-   public double deliverExperience( int difficulty )
+   public int deliverExperience( int difficulty )
    {
       double experience = 0;
       if ( difficulty < 50 )
@@ -40,6 +40,6 @@ public class MediumTrainer implements Trainer
       {
          experience = difficulty * 0.6;
       }
-      return experience;
+      return ( int ) experience;
    }
 }

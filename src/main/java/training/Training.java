@@ -36,4 +36,9 @@ public class Training
    {
       cost += this.cost;
    }
+
+
+   public double getExperience(){
+      return this.trainer.deliverExperience( this.topic.getDifficulty());
+   }
 }

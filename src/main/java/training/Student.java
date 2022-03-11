@@ -75,9 +75,7 @@ public class Student
       int experience = 0;
       for ( final Training training : this.trainings )
       {
-         final int difficulty = training.getTopic().getDifficulty();
-         final Trainer trainer = training.getTrainer();
-         experience += trainer.deliverExperience( difficulty );
+         experience += training.getExperience();
       }
 
       return experience;

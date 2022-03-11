@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import others.ConcurrencyUtils;
+
 /**
  * Represents a student .....
  *
@@ -59,7 +61,7 @@ public class Student
 
    public void addCredits( final int credits )
    {
-      this.credits += credits;
+      ConcurrencyUtils.runOnBusyThread( () -> this.credits += credits);
    }
 
    public int getCredits(){

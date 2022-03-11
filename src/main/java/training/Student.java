@@ -72,15 +72,8 @@ public class Student
     */
    public int calculateExperience()
    {
-      int experience = 0;
-      for ( final Training training : this.trainings )
-      {
-         experience += training.getExperience();
-      }
-
-      return experience;
+      return this.trainings.stream()
+            .map( Training::getExperience )
+            .reduce( 0, Integer::sum );
    }
-
-
-
 }

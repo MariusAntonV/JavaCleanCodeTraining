@@ -40,10 +40,10 @@ public class Student
          return Optional.empty();
       }
 
-      final int cost = 0;
+      int cost = 0;
       for ( final Training aTraining : this.trainings )
       {
-         aTraining.cost( cost );
+         cost += aTraining.getCost();
       }
 
       return Optional.of( cost );

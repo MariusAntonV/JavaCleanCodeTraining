@@ -6,7 +6,6 @@ import org.junit.Test;
 import trainers.JuniorTrainer;
 import trainers.MediumTrainer;
 import trainers.SeniorTrainer;
-import university.UniveristyTrainer;
 
 /**
  *

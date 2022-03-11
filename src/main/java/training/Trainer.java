@@ -13,7 +13,5 @@ public interface Trainer
 {
    String getName();
 
-   String getType();
-
    double deliverExperience(int difficulty);
 }

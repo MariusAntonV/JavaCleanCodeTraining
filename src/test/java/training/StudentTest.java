@@ -3,7 +3,9 @@ package training;
 import org.junit.Assert;
 import org.junit.Test;
 
-import trainers.TrainerImpl;
+import trainers.JuniorTrainer;
+import trainers.MediumTrainer;
+import trainers.SeniorTrainer;
 
 /**
  *
@@ -18,9 +20,9 @@ public class StudentTest
       final Student student = new Student( new Contact( "Marius", new Address("Romania", "Cluj-Napoca", "Taietura"), "1234567" ));
       student.addCredits( 30 );
 
-      final TrainerImpl trainer1 = new TrainerImpl( "Mihai", TrainerImpl.JUNIOR );
-      final TrainerImpl trainer2 = new TrainerImpl( "Ionut", TrainerImpl.MIDDLE );
-      final TrainerImpl trainer3 = new TrainerImpl( "Andreea", TrainerImpl.SENIOR );
+      final Trainer trainer1 = new JuniorTrainer( "Mihai");
+      final Trainer trainer2 = new MediumTrainer( "Ionut" );
+      final Trainer trainer3 = new SeniorTrainer( "Andreea" );
 
       final Topic html = new Topic( "HTML for beginners", 20 );
       final Topic java = new Topic( "Java in action", 50 );

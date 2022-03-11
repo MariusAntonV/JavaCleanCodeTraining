@@ -15,6 +15,8 @@ import trainers.SeniorTrainer;
 public class StudentTest
 {
 
+   private Student student;
+
    @Test
    public void deliveredExperience()
    {
@@ -43,6 +45,55 @@ public class StudentTest
       Assert.assertEquals( 130, student.calculateExperience() );
 
    }
+
+   @Test
+   public void deliveredExperience_gherkin()
+   {
+      givenStudent();
+      givenStudentHasCredits( 30 );
+
+      whenStudentParticipatesToTraining( newTraining( new JuniorTrainer( "Mihai" ), "HTML for beginners", 20 ) );
+      whenStudentParticipatesToTraining( newTraining( new MediumTrainer( "Ionut" ), "Java in action", 50 ) );
+      whenStudentParticipatesToTraining( newTraining( new SeniorTrainer( "Andreea" ), "Secure APIS", 80 ) );
+
+      thenStudentExperienceIs( 130 );
+   }
+
+
+   private void thenStudentExperienceIs( final int experience )
+   {
+      Assert.assertEquals( experience, this.student.calculateExperience() );
+   }
+
+
+   private void whenStudentParticipatesToTraining( final Training training )
+   {
+      this.student.participate( training );
+   }
+
+
+   private Training newTraining( final Trainer trainer, final String topicName, final int difficulty )
+   {
+      final Topic topic = new Topic( topicName, difficulty );
+      return new Training( topic, trainer, 10 );
+   }
+
+
+   private void givenStudentHasCredits( final int credits )
+   {
+      this.student.addCredits( credits );
+   }
+
+
+   private void givenStudent()
+   {
+      this.student = new Student( new Contact( "Marius", new Address("Romania", "Cluj-Napoca", "Taietura"), "1234567" ));
+   }
+
+
+
+
+
    @Test
    public void addCredits() throws InterruptedException
    {

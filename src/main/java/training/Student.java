@@ -1,6 +1,7 @@
 package training;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -52,7 +53,7 @@ public class Student
 
    public List<Training> getTrainings()
    {
-      return this.trainings;
+      return Collections.unmodifiableList( this.trainings );
    }
 
 

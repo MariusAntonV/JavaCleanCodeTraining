@@ -9,7 +9,7 @@ package training;
  *
  * @author MAnton
  */
-public class Contact
+class Contact
 {
    private final String name;
 

@@ -9,7 +9,7 @@ package training;
  *
  * @author MAnton
  */
-public class Address
+class Address
 {
    private final String country;
 

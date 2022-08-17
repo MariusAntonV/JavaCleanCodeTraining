@@ -25,17 +25,10 @@ public class Trainer implements ITrainer
 
 
    @Override
-   public String getExperience()
-   {
-      return this.experience;
-   }
-
-
-   @Override
    public int getDeliveredExperience( final int topicDifficulty )
    {
       int gainedExperience = 0;
-      switch ( this.getExperience() )
+      switch ( this.experience )
       {
          case ITrainer.JUNIOR:
             if ( topicDifficulty < 30 )

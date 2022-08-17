@@ -14,7 +14,6 @@ public interface ITrainer
    String JUNIOR = "junior";
    String MIDDLE = "middle";
    String SENIOR = "senior";
-   String getExperience();
 
    int getDeliveredExperience( int topicDifficulty );
 }

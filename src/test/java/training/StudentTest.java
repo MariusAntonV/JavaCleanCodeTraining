@@ -26,9 +26,9 @@ public class StudentTest
       final Topic java = new Topic( "Java in action", 50 );
       final Topic apis = new Topic( "Secure APIS", 80 );
 
-      final TrainPeople training1 = new TrainPeople( html, trainer1, 10 );
-      final TrainPeople training2 = new TrainPeople( java, trainer2, 20 );
-      final TrainPeople training3 = new TrainPeople( apis, trainer3, 30 );
+      final Training training1 = new Training( html, trainer1, 10 );
+      final Training training2 = new Training( java, trainer2, 20 );
+      final Training training3 = new Training( apis, trainer3, 30 );
 
       student.participate( training1 );
       student.participate( training2 );

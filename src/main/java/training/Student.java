@@ -23,7 +23,7 @@ public class Student
 
    private int avCrds;
 
-   private final List<TrainPeople> trainings = new ArrayList<>();
+   private final List<Training> trainings = new ArrayList<>();
 
    public Student( final String name, final String country, final String city, final String street,
          final String phoneNo )
@@ -53,21 +53,21 @@ public class Student
    }
 
 
-   public Integer participate( final TrainPeople training )
+   public Integer participate( final Training training )
    {
       this.trainings.add( training );
 
       final int cst = 0;
-      for ( final TrainPeople t : this.trainings )
+      for ( final Training t : this.trainings )
       {
-         t.cost( cst );
+         t.getCost( cst );
       }
 
       return cst;
    }
 
 
-   public List<TrainPeople> getTrainings()
+   public List<Training> getTrainings()
    {
       return this.trainings;
    }
@@ -86,10 +86,10 @@ public class Student
    public int exp()
    {
       int e = 0;
-      for ( final TrainPeople tr : this.trainings )
+      for ( final Training tr : this.trainings )
       {
          final int d = tr.getTopic().getDifficulty();
-         final Trainer t = tr.getTutor();
+         final Trainer t = tr.getTrainer();
 
          switch ( t.getType() )
          {

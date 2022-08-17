@@ -6,18 +6,18 @@ import trainers.Trainer;
  *
  * @author MAnton
  */
-public class TrainPeople
+public class Training
 {
    private final Topic topic;
 
-   private final Trainer tutor;
+   private final Trainer trainer;
 
    private int cost;
 
-   public TrainPeople( final Topic topic, final Trainer tutor, final int cost )
+   public Training( final Topic topic, final Trainer trainer, final int cost )
    {
       this.topic = topic;
-      this.tutor = tutor;
+      this.trainer = trainer;
       this.cost = cost;
    }
 
@@ -28,13 +28,13 @@ public class TrainPeople
    }
 
 
-   public Trainer getTutor()
+   public Trainer getTrainer()
    {
-      return this.tutor;
+      return this.trainer;
    }
 
 
-   public void cost( int cost )
+   public void getCost( int cost )
    {
       cost += this.cost;
    }

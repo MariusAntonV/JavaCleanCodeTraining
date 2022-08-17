@@ -1,7 +1,5 @@
 package training;
 
-import trainers.Trainer;
-
 /**
  *
  * @author MAnton
@@ -10,11 +8,11 @@ public class Training
 {
    private final Topic topic;
 
-   private final Trainer trainer;
+   private final ITrainer trainer;
 
    private int cost;
 
-   public Training( final Topic topic, final Trainer trainer, final int cost )
+   public Training( final Topic topic, final ITrainer trainer, final int cost )
    {
       this.topic = topic;
       this.trainer = trainer;
@@ -28,7 +26,7 @@ public class Training
    }
 
 
-   public Trainer getTrainer()
+   public ITrainer getTrainer()
    {
       return this.trainer;
    }

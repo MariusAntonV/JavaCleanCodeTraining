@@ -5,11 +5,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import trainers.Trainer;
-
-/**
- *
- */
 public class Student
 {
    private final String name;
@@ -78,11 +73,11 @@ public class Student
       for ( final Training training : this.trainings )
       {
          final int topicDifficulty = training.getTopic().getDifficulty();
-         final Trainer trainer = training.getTrainer();
+         final ITrainer trainer = training.getTrainer();
 
          switch ( trainer.getExperience() )
          {
-            case Trainer.JUNIOR:
+            case ITrainer.JUNIOR:
                if ( topicDifficulty < 30 )
                {
                   gainedExperience += topicDifficulty;
@@ -96,7 +91,7 @@ public class Student
                   gainedExperience += 0;//too difficult
                }
                break;
-            case Trainer.MIDDLE:
+            case ITrainer.MIDDLE:
                if ( topicDifficulty < 50 )
                {
                   gainedExperience += topicDifficulty;
@@ -106,7 +101,7 @@ public class Student
                   gainedExperience += topicDifficulty * 0.6;
                }
                break;
-            case Trainer.SENIOR:
+            case ITrainer.SENIOR:
                gainedExperience += topicDifficulty;//efficiency is 100%
                break;
          }

@@ -74,40 +74,8 @@ public class Student
       {
          final int topicDifficulty = training.getTopic().getDifficulty();
          final ITrainer trainer = training.getTrainer();
-
-         switch ( trainer.getExperience() )
-         {
-            case ITrainer.JUNIOR:
-               if ( topicDifficulty < 30 )
-               {
-                  gainedExperience += topicDifficulty;
-               }
-               else if ( topicDifficulty < 60 )
-               {
-                  gainedExperience += topicDifficulty / 2;
-               }
-               else
-               {
-                  gainedExperience += 0;//too difficult
-               }
-               break;
-            case ITrainer.MIDDLE:
-               if ( topicDifficulty < 50 )
-               {
-                  gainedExperience += topicDifficulty;
-               }
-               else
-               {
-                  gainedExperience += topicDifficulty * 0.6;
-               }
-               break;
-            case ITrainer.SENIOR:
-               gainedExperience += topicDifficulty;//efficiency is 100%
-               break;
-         }
-
+         gainedExperience += trainer.getDeliveredExperience( topicDifficulty );
       }
-
       return gainedExperience;
    }
 }

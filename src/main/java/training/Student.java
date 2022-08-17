@@ -1,6 +1,7 @@
 package training;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -44,10 +45,9 @@ public class Student
       return Optional.of( this.trainings.stream().map( Training::getCost ).reduce( 0, Integer::sum ) );
    }
 
-   //TODO can this method be removed?
    public List<Training> getTrainings()
    {
-      return this.trainings;
+      return Collections.unmodifiableList( this.trainings );
    }
 
 

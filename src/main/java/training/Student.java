@@ -7,7 +7,6 @@ import trainers.Trainer;
 
 /**
  *
- * @author MAnton
  */
 public class Student
 {
@@ -53,20 +52,28 @@ public class Student
    }
 
 
-   public Integer participate( final Training training )
+   public void participate( final Training training )
    {
       this.trainings.add( training );
-
-      final int cst = 0;
-      for ( final Training t : this.trainings )
-      {
-         t.getCost( cst );
-      }
-
-      return cst;
    }
 
 
+   /**
+    * @return total trainings cost for which this student already participated
+    */
+   public int getTotalCost()
+   {
+      final int cost = 0;
+      for ( final Training t : this.trainings )
+      {
+         t.getCost( cost );
+      }
+
+      return cost;
+   }
+
+
+   //TODO can this method be removed?
    public List<Training> getTrainings()
    {
       return this.trainings;
@@ -78,7 +85,9 @@ public class Student
       this.availableCredits += credits;
    }
 
-   public int getCredits(){
+
+   public int getAvailableCredits()
+   {
       return this.availableCredits;
    }
 

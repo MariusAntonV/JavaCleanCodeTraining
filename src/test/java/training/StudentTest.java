@@ -44,6 +44,6 @@ public class StudentTest
    {
       final Student student = new Student( "Marius", "Romania", "Cluj-Napoca", "Taietura", "1234567" );
       student.addCredits( 30 );
-      Assert.assertEquals( 30, student.getCredits() );
+      Assert.assertEquals( 30, student.getAvailableCredits() );
    }
 }

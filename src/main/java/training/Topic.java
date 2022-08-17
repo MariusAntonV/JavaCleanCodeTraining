@@ -22,7 +22,7 @@ public class Topic
       this.difficulty = difficulty;
    }
 
-
+//TODO shall we remove this?
    public String getName()
    {
       return this.name;

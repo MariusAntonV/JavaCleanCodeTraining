@@ -21,7 +21,7 @@ public class Student
 
    private final String phoneNo;
 
-   private int avCrds;
+   private int availableCredits;
 
    private final List<Training> trainings = new ArrayList<>();
 
@@ -73,57 +73,61 @@ public class Student
    }
 
 
-   public void crds( final int c )
+   public void addCredits( final int credits )
    {
-      this.avCrds += c;
+      this.availableCredits += credits;
    }
 
-   public int creds(){
-      return this.avCrds;
+   public int getCredits(){
+      return this.availableCredits;
    }
 
 
-   public int exp()
+   /**
+    *
+    * @return experience gained by this student after attending trainings.
+    */
+   public int calculateExperience()
    {
-      int e = 0;
-      for ( final Training tr : this.trainings )
+      int gainedExperience = 0;
+      for ( final Training training : this.trainings )
       {
-         final int d = tr.getTopic().getDifficulty();
-         final Trainer t = tr.getTrainer();
+         final int topicDifficulty = training.getTopic().getDifficulty();
+         final Trainer trainer = training.getTrainer();
 
-         switch ( t.getExperience() )
+         switch ( trainer.getExperience() )
          {
             case Trainer.JUNIOR:
-               if ( d < 30 )
+               if ( topicDifficulty < 30 )
                {
-                  e += d;
+                  gainedExperience += topicDifficulty;
                }
-               else if ( d < 60 )
+               else if ( topicDifficulty < 60 )
                {
-                  e += d / 2;
+                  gainedExperience += topicDifficulty / 2;
                }
                else
                {
-                  e += 0;//too difficult
+                  gainedExperience += 0;//too difficult
                }
                break;
             case Trainer.MIDDLE:
-               if ( d < 50 )
+               if ( topicDifficulty < 50 )
                {
-                  e += d;
+                  gainedExperience += topicDifficulty;
                }
                else
                {
-                  e += d * 0.6;
+                  gainedExperience += topicDifficulty * 0.6;
                }
                break;
             case Trainer.SENIOR:
-               e += d;//efficiency is 100%
+               gainedExperience += topicDifficulty;//efficiency is 100%
                break;
          }
 
       }
 
-      return e;
+      return gainedExperience;
    }
 }

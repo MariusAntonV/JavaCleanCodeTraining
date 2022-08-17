@@ -3,13 +3,28 @@
  **            Registered with Commercial Court Vienna,
  **            reg.no. FN 72.115b.
  ************************************************************************/
-package training;
+package trainers;
+
+import training.ITrainer;
 
 /**
  *
  * @author MAnton
  */
-public interface ITrainer
+public class SeniorTrainer implements ITrainer
 {
-   int getDeliveredExperience( int topicDifficulty );
+   private final String name;
+
+
+   public SeniorTrainer( final String name )
+   {
+      this.name = name;
+   }
+
+
+   @Override
+   public int getDeliveredExperience( final int topicDifficulty )
+   {
+      return topicDifficulty;
+   }
 }

@@ -3,13 +3,19 @@
  **            Registered with Commercial Court Vienna,
  **            reg.no. FN 72.115b.
  ************************************************************************/
-package training;
+package thirdparty;
+
+import training.ITrainer;
 
 /**
  *
  * @author MAnton
  */
-public interface ITrainer
+public class ThirdPartyTrainer implements ITrainer
 {
-   int getDeliveredExperience( int topicDifficulty );
+   @Override
+   public int getDeliveredExperience( int topicDifficulty )
+   {
+      return 50;
+   }
 }

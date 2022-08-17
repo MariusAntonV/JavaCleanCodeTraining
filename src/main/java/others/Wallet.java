@@ -1,5 +1,7 @@
 package others;
 
+import java.util.function.Consumer;
+
 /**
  *
  * @author MAnton
@@ -15,26 +17,27 @@ public class Wallet
 
    private int bonusCredits = 0;
 
-   public void addCredits( final int credits, final boolean isBonus )
+
+   public void addBonusCredits( final int credits )
    {
-      if ( credits > 0 )
-      {
-         if ( isBonus )
-         {
-            this.bonusCredits += credits;
-         }
-         else
-         {
-            this.credits += credits;
-         }
-      }
-      else
+      addCreditsInternal( credits, ( c ) -> this.bonusCredits += c );
+   }
+
+
+   public void addCredits( final int credits )
+   {
+      addCreditsInternal( credits, ( c ) -> this.credits += c );
+   }
+
+// remove duplicate code using Consumer ... not necessarily useful in this situation
+   private void addCreditsInternal( final int credits, final Consumer<Integer> consumer )
+   {
+      if ( credits <= 0 )
       {
          return;
       }
-
+      consumer.accept( credits );
    }
-
 
    public Code consumeCredits( final int noOfCreditsToConsume )
    {

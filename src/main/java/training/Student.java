@@ -63,13 +63,7 @@ public class Student
     */
    public int getTotalCost()
    {
-      final int cost = 0;
-      for ( final Training t : this.trainings )
-      {
-         t.getCost( cost );
-      }
-
-      return cost;
+      return this.trainings.stream().map( Training::getCost ).reduce( 0, Integer::sum );
    }
 
 

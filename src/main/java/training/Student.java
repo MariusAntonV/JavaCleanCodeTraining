@@ -2,6 +2,7 @@ package training;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import trainers.Trainer;
 
@@ -61,11 +62,15 @@ public class Student
    /**
     * @return total trainings cost for which this student already participated
     */
-   public int getTotalCost()
+   public Optional<Integer> getTotalCost()
    {
-      return this.trainings.stream().map( Training::getCost ).reduce( 0, Integer::sum );
-   }
+      if ( this.trainings.isEmpty() )
+      {
+         return Optional.empty();
+      }
 
+      return Optional.of( this.trainings.stream().map( Training::getCost ).reduce( 0, Integer::sum ) );
+   }
 
    //TODO can this method be removed?
    public List<Training> getTrainings()

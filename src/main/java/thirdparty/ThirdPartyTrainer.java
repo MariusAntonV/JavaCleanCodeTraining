@@ -14,7 +14,7 @@ import training.ITrainer;
 public class ThirdPartyTrainer implements ITrainer
 {
    @Override
-   public int getDeliveredExperience( int topicDifficulty )
+   public int getDeliveredExperience( final int topicDifficulty )
    {
       return 50;
    }

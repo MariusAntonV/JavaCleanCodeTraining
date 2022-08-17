@@ -12,6 +12,7 @@ public class Training
 
    private int cost;
 
+
    public Training( final Topic topic, final ITrainer trainer, final int cost )
    {
       this.topic = topic;
@@ -20,15 +21,9 @@ public class Training
    }
 
 
-   public Topic getTopic()
+   public int getExperience()
    {
-      return this.topic;
-   }
-
-
-   public ITrainer getTrainer()
-   {
-      return this.trainer;
+      return this.trainer.getDeliveredExperience( this.topic.getDifficulty() );
    }
 
 

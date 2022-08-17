@@ -69,13 +69,6 @@ public class Student
     */
    public int calculateExperience()
    {
-      int gainedExperience = 0;
-      for ( final Training training : this.trainings )
-      {
-         final int topicDifficulty = training.getTopic().getDifficulty();
-         final ITrainer trainer = training.getTrainer();
-         gainedExperience += trainer.getDeliveredExperience( topicDifficulty );
-      }
-      return gainedExperience;
+      return this.trainings.stream().map( Training::getExperience ).reduce( 0, Integer::sum );
    }
 }

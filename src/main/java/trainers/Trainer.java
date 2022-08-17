@@ -11,29 +11,30 @@ package trainers;
  */
 public class Trainer
 {
-   public static final String J = "junior";
-   public static final String M = "middle";
-   public static final String S = "senior";
+   public static final String JUNIOR = "junior";
+   public static final String MIDDLE = "middle";
+   public static final String SENIOR = "senior";
 
    private final String name;
 
-   private final String type;
+   private final String experience;
 
-   public Trainer( final String name, final String type )
+   public Trainer( final String name, final String experience )
    {
       this.name = name;
-      this.type = type;
+      this.experience = experience;
    }
 
 
+   //TODO remove method if not used
    public String getName()
    {
       return this.name;
    }
 
 
-   public String getType()
+   public String getExperience()
    {
-      return this.type;
+      return this.experience;
    }
 }

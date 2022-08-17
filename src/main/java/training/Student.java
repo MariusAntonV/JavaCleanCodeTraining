@@ -91,9 +91,9 @@ public class Student
          final int d = tr.getTopic().getDifficulty();
          final Trainer t = tr.getTrainer();
 
-         switch ( t.getType() )
+         switch ( t.getExperience() )
          {
-            case Trainer.J:
+            case Trainer.JUNIOR:
                if ( d < 30 )
                {
                   e += d;
@@ -107,7 +107,7 @@ public class Student
                   e += 0;//too difficult
                }
                break;
-            case Trainer.M:
+            case Trainer.MIDDLE:
                if ( d < 50 )
                {
                   e += d;
@@ -117,7 +117,7 @@ public class Student
                   e += d * 0.6;
                }
                break;
-            case Trainer.S:
+            case Trainer.SENIOR:
                e += d;//efficiency is 100%
                break;
          }

@@ -17,6 +17,7 @@ public class StudentTest
    @Test
    public void deliveredExperience()
    {
+      //given
       final Student student =
             new Student( "Marius", new Contact( new Address( "Romania", "Cluj-Napoca", "Taietura" ), "1234567" ) );
       student.addCredits( 30 );
@@ -33,12 +34,13 @@ public class StudentTest
       final Training training2 = new Training( java, trainer2, 20 );
       final Training training3 = new Training( apis, trainer3, 30 );
 
+      //when
       student.participate( training1 );
       student.participate( training2 );
       student.participate( training3 );
 
+      //then
       Assert.assertEquals( 130, student.calculateExperience() );
-
    }
 
 

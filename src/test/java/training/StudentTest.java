@@ -15,7 +15,8 @@ public class StudentTest
    @Test
    public void deliveredExperience()
    {
-      final Student student = new Student( "Marius", new Contact( "Romania", "Cluj-Napoca", "Taietura", "1234567" ) );
+      final Student student =
+            new Student( "Marius", new Contact( new Address( "Romania", "Cluj-Napoca", "Taietura" ), "1234567" ) );
       student.addCredits( 30 );
 
       final Trainer trainer1 = new Trainer( "Mihai", Trainer.JUNIOR );
@@ -42,7 +43,8 @@ public class StudentTest
    @Test
    public void addCredits()
    {
-      final Student student = new Student( "Marius", new Contact( "Romania", "Cluj-Napoca", "Taietura", "1234567" ) );
+      final Student student =
+            new Student( "Marius", new Contact( new Address( "Romania", "Cluj-Napoca", "Taietura" ), "1234567" ) );
       student.addCredits( 30 );
       Assert.assertEquals( 30, student.getCredits() );
    }

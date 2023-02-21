@@ -11,39 +11,20 @@ package training;
  */
 public class Contact
 {
-   private final String country;
-
-   private final String city;
-
-   private final String street;
+   private final Address address;
 
    private final String phoneNo;
 
-
-   public Contact( final String country, final String city, final String street, final String phoneNo )
+   public Contact( final Address address, final String phoneNo )
    {
-      this.country = country;
-      this.city = city;
-      this.street = street;
+      this.address = address;
       this.phoneNo = phoneNo;
    }
 
 
-   public String getStreet()
+   public Address getAddress()
    {
-      return this.street;
-   }
-
-
-   public String getCity()
-   {
-      return this.city;
-   }
-
-
-   public String getCountry()
-   {
-      return this.country;
+      return this.address;
    }
 
 
@@ -52,19 +33,10 @@ public class Contact
       return this.phoneNo;
    }
 
-   public String printAddress()
+   public String getContactAsString()
    {
-      final StringBuilder sb = new StringBuilder( "" );
-      sb.append( this.country ).append( ", " ).append( this.city ).append( ", " ).append( this.street );
-      return sb.toString();
-   }
-
-
-   public String printContact()
-   {
-      final StringBuilder sb = new StringBuilder( "" );
-      sb.append( this.country ).append( ", " ).append( this.city ).append( ", " ).append( this.street ).append( ", " )
-            .append( this.phoneNo );
+      final StringBuilder sb = new StringBuilder( this.address.getAddressAsString() );
+      sb.append( ", " ).append( this.phoneNo );
       return sb.toString();
    }
 }

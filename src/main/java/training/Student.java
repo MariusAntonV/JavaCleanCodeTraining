@@ -80,9 +80,7 @@ public class Student
       int experience = 0;
       for ( final Training aTraining : this.trainings )
       {
-         final int difficulty = aTraining.getTopic().getDifficulty();
-         final Trainer trainer = aTraining.getTrainer();
-         experience += trainer.deliverExperience( difficulty );
+         experience += aTraining.getExperience();
       }
 
       return experience;

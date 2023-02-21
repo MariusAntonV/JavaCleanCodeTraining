@@ -20,20 +20,14 @@ public class Training
    }
 
 
-   public Topic getTopic()
-   {
-      return this.topic;
-   }
-
-
-   public Trainer getTrainer()
-   {
-      return this.trainer;
-   }
-
-
    public int getCost()
    {
       return this.cost;
+   }
+
+
+   public int getExperience()
+   {
+      return this.trainer.deliverExperience( this.topic.getDifficulty() );
    }
 }

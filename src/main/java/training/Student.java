@@ -82,38 +82,7 @@ public class Student
       {
          final int difficulty = aTraining.getTopic().getDifficulty();
          final Trainer trainer = aTraining.getTrainer();
-
-         switch ( trainer.getType() )
-         {
-            case Trainer.JUNIOR:
-               if ( difficulty < 30 )
-               {
-                  experience += difficulty;
-               }
-               else if ( difficulty < 60 )
-               {
-                  experience += difficulty / 2;
-               }
-               else
-               {
-                  experience += 0;//too difficult
-               }
-               break;
-            case Trainer.MIDDLE:
-               if ( difficulty < 50 )
-               {
-                  experience += difficulty;
-               }
-               else
-               {
-                  experience += difficulty * 0.6;
-               }
-               break;
-            case Trainer.SENIOR:
-               experience += difficulty;//efficiency is 100%
-               break;
-         }
-
+         experience += trainer.deliverExperience( difficulty );
       }
 
       return experience;

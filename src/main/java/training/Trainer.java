@@ -18,4 +18,6 @@ public interface Trainer
    String SENIOR = "senior";
 
    String getType();
+
+   int deliverExperience( int difficulty );
 }

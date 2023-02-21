@@ -37,4 +37,41 @@ public class TrainerImpl implements Trainer
    {
       return this.type;
    }
+
+   @Override
+   public int deliverExperience( final int difficulty )
+   {
+      int experience = 0;
+      switch ( this.getType() )
+      {
+         case Trainer.JUNIOR:
+            if ( difficulty < 30 )
+            {
+               experience += difficulty;
+            }
+            else if ( difficulty < 60 )
+            {
+               experience += difficulty / 2;
+            }
+            else
+            {
+               experience += 0;//too difficult
+            }
+            break;
+         case Trainer.MIDDLE:
+            if ( difficulty < 50 )
+            {
+               experience += difficulty;
+            }
+            else
+            {
+               experience += difficulty * 0.6;
+            }
+            break;
+         case Trainer.SENIOR:
+            experience += difficulty;//efficiency is 100%
+            break;
+      }
+      return experience;
+   }
 }

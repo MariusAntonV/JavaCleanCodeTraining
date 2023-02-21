@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import others.ConcurrencyUtils;
+
 /**
  *
  * @author MAnton
@@ -68,7 +70,7 @@ public class Student
 
    public void addCredits( final int credits )
    {
-      this.credits += credits;
+      ConcurrencyUtils.runOnBusyThread( () -> this.credits += credits );
    }
 
 

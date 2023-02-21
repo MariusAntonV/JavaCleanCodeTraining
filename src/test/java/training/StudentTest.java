@@ -43,11 +43,32 @@ public class StudentTest
 
 
    @Test
-   public void addCredits()
+   public void addCredits() throws InterruptedException
    {
       final Student student =
             new Student( "Marius", new Contact( new Address( "Romania", "Cluj-Napoca", "Taietura" ), "1234567" ) );
       student.addCredits( 30 );
-      Assert.assertEquals( 30, student.getCredits() );
+
+      //DO not use sleep of max timeout
+//      Thread.sleep( 10000 );
+//      Assert.assertEquals( 30, student.getCredits() );
+      Assert.assertTrue( verifyCredits(30, student, 10_000) );
+   }
+
+   private boolean verifyCredits( final int expected, final Student student, final int timeoutInMillis ) throws InterruptedException
+   {
+      final int pace = 100;
+      final int noOfTries = timeoutInMillis / pace;
+
+      for ( int i = 0; i < noOfTries; i++ )
+      {
+         final int credits = student.getCredits();
+         if ( credits == expected )
+         {
+            return true;
+         }
+         Thread.sleep( pace );
+      }
+      return false;
    }
 }

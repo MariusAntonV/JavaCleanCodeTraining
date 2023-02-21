@@ -83,6 +83,12 @@ public class Student
    }
 
 
+   /**
+    * Calculate total experience for this student based
+    * on participation to past trainings
+    *
+    * @return
+    */
    public int calculateExperience()
    {
       int experience = 0;

@@ -2,6 +2,7 @@ package training;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import trainers.Trainer;
 
@@ -59,15 +60,25 @@ public class Student
    }
 
 
-   public int getTotalCost()
+   /**
+    * Total cost based on past participations.
+    *
+    * @return totalCost or Optional.empty() if there is no participation.
+    */
+   public Optional<Integer> getTotalCost()
    {
-      final int totalCost = 0;
-      for ( final Training aTraining : this.trainings )
+      if ( this.trainings.isEmpty() )
       {
-         aTraining.cost( totalCost );
+         return Optional.empty();
       }
 
-      return totalCost;
+      int totalCost = 0;
+      for ( final Training aTraining : this.trainings )
+      {
+         totalCost += aTraining.getCost();
+      }
+
+      return Optional.of( totalCost );
    }
 
 

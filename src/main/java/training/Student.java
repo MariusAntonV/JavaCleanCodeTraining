@@ -1,6 +1,7 @@
 package training;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,7 +56,13 @@ public class Student
 
    public List<Training> getTrainings()
    {
-      return this.trainings;
+      return Collections.unmodifiableList( this.trainings );
+   }
+
+
+   public Optional<Training> getTraining( final String topicName )
+   {
+      return this.trainings.stream().filter( t -> t.getTopic().getName().equals( topicName ) ).findFirst();
    }
 
 
@@ -64,7 +71,9 @@ public class Student
       this.credits += credits;
    }
 
-   public int getCredits(){
+
+   public int getCredits()
+   {
       return this.credits;
    }
 

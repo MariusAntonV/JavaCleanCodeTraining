@@ -12,6 +12,4 @@ package training;
 public interface Trainer
 {
    int deliverExperience( int difficulty );
-
-   int bill( int difficulty );
 }

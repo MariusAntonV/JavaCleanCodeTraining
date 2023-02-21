@@ -17,22 +17,19 @@ public class Wallet
 
    public void addCredits( final int credits, final boolean isBonus )
    {
-      if ( credits > 0 )
-      {
-         if ( isBonus )
-         {
-            this.bonusCredits += credits;
-         }
-         else
-         {
-            this.credits += credits;
-         }
-      }
-      else
+      if ( credits <= 0 )
       {
          return;
       }
 
+      if ( isBonus )
+      {
+         this.bonusCredits += credits;
+      }
+      else
+      {
+         this.credits += credits;
+      }
    }
 
 
@@ -47,6 +44,19 @@ public class Wallet
       {
          return Code.INSUFFICIENT_FUNDS;
       }
+   }
+
+
+   public Code consumeCredits_oneReturn( final int noOfCreditsToConsume )
+   {
+      Code code = Code.INSUFFICIENT_FUNDS;
+      if ( this.credits >= noOfCreditsToConsume )
+      {
+         this.credits -= noOfCreditsToConsume;
+         code = Code.OK;
+      }
+
+      return code;
    }
 
 

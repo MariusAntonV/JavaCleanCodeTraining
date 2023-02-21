@@ -3,7 +3,7 @@ package training;
 import org.junit.Assert;
 import org.junit.Test;
 
-import trainers.Trainer;
+import trainers.TrainerImpl;
 
 /**
  *
@@ -19,9 +19,9 @@ public class StudentTest
             new Student( "Marius", new Contact( new Address( "Romania", "Cluj-Napoca", "Taietura" ), "1234567" ) );
       student.addCredits( 30 );
 
-      final Trainer trainer1 = new Trainer( "Mihai", Trainer.JUNIOR );
-      final Trainer trainer2 = new Trainer( "Ionut", Trainer.MIDDLE );
-      final Trainer trainer3 = new Trainer( "Andreea", Trainer.SENIOR );
+      final Trainer trainer1 = new TrainerImpl( "Mihai", Trainer.JUNIOR );
+      final Trainer trainer2 = new TrainerImpl( "Ionut", Trainer.MIDDLE );
+      final Trainer trainer3 = new TrainerImpl( "Andreea", Trainer.SENIOR );
 
       final Topic html = new Topic( "HTML for beginners", 20 );
       final Topic java = new Topic( "Java in action", 50 );

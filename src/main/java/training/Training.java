@@ -1,7 +1,5 @@
 package training;
 
-import trainers.Trainer;
-
 /**
  *
  * @author MAnton
@@ -12,7 +10,7 @@ public class Training
 
    private final Trainer trainer;
 
-   private int cost;
+   private final int cost;
 
    public Training( final Topic topic, final Trainer trainer, final int cost )
    {
@@ -36,6 +34,6 @@ public class Training
 
    public int getCost()
    {
-      return cost;
+      return this.cost;
    }
 }

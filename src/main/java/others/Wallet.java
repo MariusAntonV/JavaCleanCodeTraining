@@ -73,6 +73,7 @@ public class Wallet
 
    public boolean hasBonusCredits()
    {
+
       return this.bonusCredits > 0;
    }
 

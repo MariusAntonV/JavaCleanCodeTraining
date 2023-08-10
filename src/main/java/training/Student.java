@@ -3,8 +3,6 @@ package training;
 import java.util.ArrayList;
 import java.util.List;
 
-import trainers.Trainer;
-
 /**
  *
  * @author MAnton
@@ -69,11 +67,11 @@ public class Student
       for ( final Training training : this.trainings )
       {
          final int topicDifficulty = training.getTopic().getDifficulty();
-         final Trainer trainer = training.getTrainer();
+         final ITrainer trainer = training.getTrainer();
 
          switch ( trainer.getType() )
          {
-            case Trainer.JUNIOR:
+            case ITrainer.JUNIOR:
                if ( topicDifficulty < 30 )
                {
                   totalExperience += topicDifficulty;
@@ -87,7 +85,7 @@ public class Student
                   totalExperience += 0;//too difficult
                }
                break;
-            case Trainer.MIDDLE:
+            case ITrainer.MIDDLE:
                if ( topicDifficulty < 50 )
                {
                   totalExperience += topicDifficulty;
@@ -97,7 +95,7 @@ public class Student
                   totalExperience += topicDifficulty * 0.6;
                }
                break;
-            case Trainer.SENIOR:
+            case ITrainer.SENIOR:
                totalExperience += topicDifficulty;//efficiency is 100%
                break;
          }

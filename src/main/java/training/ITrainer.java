@@ -14,4 +14,6 @@ public interface ITrainer
    String getName();
 
    String getType();
+
+   int getDeliveredExperience( int topicDifficulty );
 }

@@ -13,44 +13,17 @@ public class Student
 {
    private final String name;
 
-   private final String country;
-
-   private final String city;
-
-   private final String street;
-
-   private final String phoneNo;
+   private final Contact contact;
 
    private final List<Training> trainings = new ArrayList<>();
 
    private int totalCredits;
 
 
-   public Student( final String name, final String country, final String city, final String street,
-         final String phoneNo )
+   public Student( final String name, Contact contact )
    {
       this.name = name;
-      this.country = country;
-      this.city = city;
-      this.street = street;
-      this.phoneNo = phoneNo;
-   }
-
-
-   public String printAddress()
-   {
-      final StringBuilder sb = new StringBuilder( "" );
-      sb.append( this.country ).append( ", " ).append( this.city ).append( ", " ).append( this.street );
-      return sb.toString();
-   }
-
-
-   public String printContact()
-   {
-      final StringBuilder sb = new StringBuilder( "" );
-      sb.append( this.country ).append( ", " ).append( this.city ).append( ", " ).append( this.street ).append( ", " )
-            .append( this.phoneNo );
-      return sb.toString();
+      this.contact = contact;
    }
 
 
@@ -79,7 +52,9 @@ public class Student
       this.totalCredits += credit;
    }
 
-   public int getTotalCredits(){
+
+   public int getTotalCredits()
+   {
       return this.totalCredits;
    }
 

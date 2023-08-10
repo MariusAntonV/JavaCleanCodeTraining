@@ -66,40 +66,7 @@ public class Student
       int totalExperience = 0;
       for ( final Training training : this.trainings )
       {
-         final int topicDifficulty = training.getTopic().getDifficulty();
-         final ITrainer trainer = training.getTrainer();
-
-         switch ( trainer.getType() )
-         {
-            case ITrainer.JUNIOR:
-               if ( topicDifficulty < 30 )
-               {
-                  totalExperience += topicDifficulty;
-               }
-               else if ( topicDifficulty < 60 )
-               {
-                  totalExperience += topicDifficulty / 2;
-               }
-               else
-               {
-                  totalExperience += 0;//too difficult
-               }
-               break;
-            case ITrainer.MIDDLE:
-               if ( topicDifficulty < 50 )
-               {
-                  totalExperience += topicDifficulty;
-               }
-               else
-               {
-                  totalExperience += topicDifficulty * 0.6;
-               }
-               break;
-            case ITrainer.SENIOR:
-               totalExperience += topicDifficulty;//efficiency is 100%
-               break;
-         }
-
+         totalExperience += training.getDeliveredExperience();
       }
 
       return totalExperience;

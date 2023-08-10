@@ -17,4 +17,11 @@ public class SeniorTrainer extends AbstractTrainer
    {
       return topicDifficulty;
    }
+
+
+   @Override
+   public void bill( int price )
+   {
+      //
+   }
 }

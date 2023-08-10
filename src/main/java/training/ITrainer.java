@@ -10,4 +10,6 @@ public interface ITrainer
 
 
    int getDeliveredExperience( int topicDifficulty );
+
+   void bill( int price );
 }

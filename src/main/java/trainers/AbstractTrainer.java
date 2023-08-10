@@ -22,4 +22,5 @@ abstract class AbstractTrainer implements ITrainer
    {
       return name;
    }
+
 }

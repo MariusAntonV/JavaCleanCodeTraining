@@ -21,9 +21,10 @@ public class Student
 
    private final String phoneNo;
 
-   private int avCrds;
+   private final List<Training> trainings = new ArrayList<>();
 
-   private final List<TrainPeople> trainings = new ArrayList<>();
+   private int totalCredits;
+
 
    public Student( final String name, final String country, final String city, final String street,
          final String phoneNo )
@@ -53,77 +54,81 @@ public class Student
    }
 
 
-   public Integer participate( final TrainPeople training )
+   public Integer participate( final Training training )
    {
       this.trainings.add( training );
 
       final int cst = 0;
-      for ( final TrainPeople t : this.trainings )
+      for ( final Training t : this.trainings )
       {
-         t.cost( cst );
+         t.addCost( cst );
       }
 
       return cst;
    }
 
 
-   public List<TrainPeople> getTrainings()
+   public List<Training> getTrainings()
    {
       return this.trainings;
    }
 
 
-   public void crds( final int c )
+   public void addCredit( final int credit )
    {
-      this.avCrds += c;
+      this.totalCredits += credit;
    }
 
-   public int creds(){
-      return this.avCrds;
+   public int getTotalCredits(){
+      return this.totalCredits;
    }
 
 
-   public int exp()
+   /**
+    * Calculates total student experience based on previous training participation.
+    * @return total calculated experience
+    */
+   public int calculateExperience()
    {
-      int e = 0;
-      for ( final TrainPeople tr : this.trainings )
+      int totalExperience = 0;
+      for ( final Training training : this.trainings )
       {
-         final int d = tr.getTopic().getDifficulty();
-         final Trainer t = tr.getTutor();
+         final int topicDifficulty = training.getTopic().getDifficulty();
+         final Trainer trainer = training.getTrainer();
 
-         switch ( t.getType() )
+         switch ( trainer.getType() )
          {
-            case Trainer.J:
-               if ( d < 30 )
+            case Trainer.JUNIOR:
+               if ( topicDifficulty < 30 )
                {
-                  e += d;
+                  totalExperience += topicDifficulty;
                }
-               else if ( d < 60 )
+               else if ( topicDifficulty < 60 )
                {
-                  e += d / 2;
-               }
-               else
-               {
-                  e += 0;//too difficult
-               }
-               break;
-            case Trainer.M:
-               if ( d < 50 )
-               {
-                  e += d;
+                  totalExperience += topicDifficulty / 2;
                }
                else
                {
-                  e += d * 0.6;
+                  totalExperience += 0;//too difficult
                }
                break;
-            case Trainer.S:
-               e += d;//efficiency is 100%
+            case Trainer.MIDDLE:
+               if ( topicDifficulty < 50 )
+               {
+                  totalExperience += topicDifficulty;
+               }
+               else
+               {
+                  totalExperience += topicDifficulty * 0.6;
+               }
+               break;
+            case Trainer.SENIOR:
+               totalExperience += topicDifficulty;//efficiency is 100%
                break;
          }
 
       }
 
-      return e;
+      return totalExperience;
    }
 }

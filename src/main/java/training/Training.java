@@ -33,9 +33,9 @@ public class Training
    }
 
 
-   public void addCost( int cost )
+   public int getCost()
    {
-      cost += this.cost;
+      return this.cost;
    }
 
 
